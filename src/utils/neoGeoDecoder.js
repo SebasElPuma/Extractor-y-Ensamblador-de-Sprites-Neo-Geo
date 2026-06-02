@@ -1,4 +1,4 @@
-// --- MAGIA ANTI-LAG: La ROM vive aquí, fuera del alcance de React ---
+// La ROM vive aquí, fuera del alcance de React ---
 let romMemory = { c1Data: null, c2Data: null };
 
 export function loadRomToMemory(c1, c2) {
@@ -57,7 +57,7 @@ export function renderTileOnCanvas(canvas, tileIndex, _ignoredRomData, palette) 
   ctx.putImageData(imgData, 0, 0);
 }
 
-// Hacemos lo mismo para el diagnóstico
+// Hacemos lo mismo para el visor de cuadrículas individual
 export function getTileIndicesGrid(tileIndex, _ignoredRomData) {
   if (!romMemory.c1Data || !romMemory.c2Data) return null;
   const grid = Array(16).fill(0).map(() => Array(16).fill(0));
