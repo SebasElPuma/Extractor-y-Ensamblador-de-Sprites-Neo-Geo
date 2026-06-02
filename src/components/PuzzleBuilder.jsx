@@ -15,7 +15,7 @@ function PuzzleCell({ r, c, cellValue, onValueChange, onSwap, dataReady, activeP
     if (e.type === 'blur' || e.key === 'Enter') setIsEditing(false);
   };
 
-  // --- LÓGICA DE ARRASTRAR (Sin necesidad de Ctrl) ---
+  // --- LÓGICA DE ARRASTRAR (Solo mantener clic) ---
   const handleDragStart = (e) => {
     if (isEraserActive) {
       e.preventDefault();
@@ -33,7 +33,7 @@ function PuzzleCell({ r, c, cellValue, onValueChange, onSwap, dataReady, activeP
     } catch(err) { }
   };
 
-  // --- NUEVA LÓGICA DE CLICS (Pegar y Editar) ---
+  // --- LÓGICA DE CLICS (Pegar y Editar) ---
   const handleClick = async (e) => {
     if (isEraserActive) {
       // 1. Borrador activo
@@ -43,7 +43,7 @@ function PuzzleCell({ r, c, cellValue, onValueChange, onSwap, dataReady, activeP
       try {
         const text = await navigator.clipboard.readText();
         const cleanText = text.trim();
-        // Verificamos que lo que copió del explorador sea realmente un número
+        // Verifica que lo que copió del explorador sea realmente un número
         if (/^\d+$/.test(cleanText)) {
           onValueChange(r, c, cleanText);
         }
@@ -51,7 +51,7 @@ function PuzzleCell({ r, c, cellValue, onValueChange, onSwap, dataReady, activeP
         console.error("El navegador bloqueó la lectura del portapapeles o está vacío.", err);
       }
     } else {
-      // 3. Clic normal: Editar escribiendo
+      // 3. Clic normal: Al hacer clic, se habilita la entrada de dígitos
       if (!showInput) setIsEditing(true); 
     }
   };
@@ -232,7 +232,7 @@ function PuzzleBuilder({ activePalette, tileSize = 64, dataReady }) {
         )}
       </div>
       
-      {/* TEXTO DE AYUDA ACTUALIZADO */}
+      {/* TEXTO DE AYUDA */}
       <div style={{ color: '#666', fontSize: '13px', marginTop: '20px', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '5px' }}>
         <span>🖱️ <b>Clic y arrastrar</b> para mover una pieza.</span>
         <span>📋 <b>Ctrl + Clic</b> para PEGAR un tile copiado del Explorador.</span>
