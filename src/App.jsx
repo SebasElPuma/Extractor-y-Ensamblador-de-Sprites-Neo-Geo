@@ -63,7 +63,7 @@ function App() {
       evenOffset += buf.byteLength;
     }
     
-    // 5. Enviamos la mega-ROM a la memoria pura (¡Adiós lag!)
+    // 5. Enviamos el .bin a la memoria
     loadRomToMemory(mergedOddData, mergedEvenData);
     
     setTotalTiles(Math.floor(Math.min(mergedOddData.length, mergedEvenData.length) / 64));
