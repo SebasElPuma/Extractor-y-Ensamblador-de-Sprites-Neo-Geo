@@ -23,3 +23,9 @@ Una herramienta web rápida y sin lag para extraer, visualizar y ensamblar sprit
 * React (Vite)
 * Manipulación de Bits y Canvas API de HTML5.
 * JSZip (Para descarga masiva de tiles).
+
+## 🤝 Créditos y Agradecimientos
+
+* **Desarrollo principal y diseño de flujo de trabajo:** [SebasElPuma].
+* **Lógica de Neo Geo:** Basado en el repositorio: https://github.com/city41/neospriteviewer y asistido por DeepWiki para su comprensión.
+* **Asistencia de IA:** Parte de la estructuración en React, la optimización extrema de memoria (eliminación de lag en archivos `.bin` pesados) y el diseño de la interfaz (Drag & Drop, Portapapeles) fue desarrollada con la asistencia de Gemini como herramienta de *pair programming*.
